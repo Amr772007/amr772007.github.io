@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>د. عمرو خالد محمد - الموقع الطبي الشامل</title>
+  <meta name="keywords" content="الطب, الطب البشري, العلوم الطبية, معلومات طبية, صحة, استشارات, أبحاث, الوقاية, التشخيص, العلاج">
+  <meta property="og:title" content="د. عمرو خالد محمد - الموقع الطبي الشامل">
+  <meta property="og:description" content="تابع رحلتي في الطب البشري والعلوم الطبية. موقع شامل يحتوي على معلومات طبية، أبحاث واستشارات.">
+  <meta property="og:image" content="cover-image.jpg">
+  <meta property="og:url" content="https://example.com">
+  <meta property="og:type" content="website">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  
+  <style>
+    /* إعادة تعيين الأنماط الأساسية */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+      direction: rtl;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    /* نص خلفي شفاف */
+    body::before {
+      content: "د. عمرو خالد محمد";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 10rem;
+      color: rgba(0, 0, 0, 0.05);
+      z-index: -1;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    /* تنسيق الهيدر والشريط العلوي */
+    header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 20px;
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    /* تقسيم الهيدر إلى 3 أقسام: اليسار (المتابعين)، المنتصف (الاسم) واليمين (شريط التنقل) */
+    .header-left, .header-center, .header-right {
+      flex: 1;
+    }
+    .header-left {
+      text-align: left;
+    }
+    .header-center {
+      text-align: center;
+    }
+    .header-right {
+      text-align: right;
+    }
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      justify-content: flex-end;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #ff9800;
+    }
+    /* عبارة المتابعين في الجهة اليسرى */
+    .followers {
+      font-size: 1.2rem;
+      color: #ff9800;
+    }
+    /* قسم البطل (Hero) */
+    .hero {
+      position: relative;
+      background: url('cover-image.jpg') no-repeat center center/cover;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 20px;
+    }
+    .hero-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+    }
+    /* تنسيق الأقسام العامة */
+    section {
+      padding: 40px 20px;
+    }
+    section h2 {
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    .content {
+      max-width: 1200px;
+      margin: auto;
+    }
+    /* قسم المقالات الطبية */
+    .articles, .encyclopedia, .news {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    article {
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    article h3 {
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+    article p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      text-align: justify;
+    }
+    article a {
+      color: #ff9800;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    article a:hover {
+      text-decoration: underline;
+    }
+    /* قسم الاستشارات الطبية */
+    .consultation {
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    .consultation form {
+      display: flex;
+      flex-direction: column;
+    }
+    .consultation form label {
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    .consultation form input, .consultation form textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .consultation form button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .consultation form button:hover {
+      background: #0056b3;
+    }
+    /* قسم المصادر الإضافية */
+    .external-sources {
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px auto;
+      max-width: 800px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .external-sources ul {
+      list-style: none;
+      padding: 0;
+    }
+    .external-sources li {
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+    .external-sources li a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .external-sources li a:hover {
+      text-decoration: underline;
+    }
+    /* تنسيق الفوتر */
+    footer {
+      background: #007bff;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    /* الوضع الليلي */
+    .dark-mode {
+      background-color: #222;
+      color: #ddd;
+    }
+    .dark-mode header {
+      background-color: #333;
+    }
+    .dark-mode nav ul li a {
+      color: #ddd;
+    }
+    .dark-mode nav ul li a:hover {
+      color: #ff9800;
+    }
+    .dark-mode article {
+      background: #333;
+      color: #ddd;
+    }
+    .dark-mode article h3 {
+      color: #ff9800;
+    }
+    .dark-mode footer {
+      background: #333;
+    }
+    /* استجابة التصميم */
+    @media(max-width:768px) {
+      header .container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .header-left, .header-center, .header-right {
+        text-align: center;
+        flex: unset;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- الهيدر -->
+  <header>
+    <div class="container">
+      <div class="header-left">
+        <div class="followers">1.5 مليون متابع</div>
+      </div>
+      <div class="header-center">
+        <h1>د. عمرو خالد محمد</h1>
+      </div>
+      <div class="header-right">
+        <nav>
+          <ul>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#about">عن الموقع</a></li>
+            <li><a href="#articles">المقالات الطبية</a></li>
+            <li><a href="#encyclopedia">الموسوعة الطبية</a></li>
+            <li><a href="#news">أخبار الطب</a></li>
+            <li><a href="#consultation">الاستشارات</a></li>
+            <li><a href="#contact">اتصل بنا</a></li>
+            <li><a href="#sources">مصادر إضافية</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
+  <!-- قسم البطل -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2>رحلتك مع الطب البشري والعلوم الطبية</h2>
+      <p>اكتشف أحدث المعلومات والأبحاث الطبية الموثوقة لتحسين صحتك وجودة حياتك من خلال محتوى علمي موثوق وشامل مع التركيز على الوقاية والعلاج المبكر.</p>
+    </div>
+  </section>
+  
+  <!-- قسم التعريف عن الموقع -->
+  <section id="about" class="content">
+    <h2>عن الموقع</h2>
+    <p style="text-align: justify;">
+      يُعد موقع د. عمرو خالد محمد منصة شاملة للمعلومات الطبية والعلوم الطبية المتقدمة، حيث نجمع بين الأبحاث العلمية والمقالات التوعوية والموسوعية حول الطب البشري. نسعى إلى تمكين زوارنا بالمعلومات الدقيقة والحديثة لتعزيز الوعي الصحي وتشجيع الوقاية والعلاج المبكر. يقدم الموقع محتوى مفصل في مجالات التشريح، الأمراض، الوقاية، والتشخيص والعلاج، مدعومًا بأحدث الدراسات والابتكارات الطبية العالمية.
+    </p>
+    <p style="text-align: justify;">
+      نحرص على تقديم شروحات وافية، وأمثلة عملية، وتوصيات مبنية على الأبحاث العلمية الحديثة، لضمان استفادة المستخدمين من كل معلومة نقدمها. هدفنا أن يكون الموقع مرجعاً طبيًا شاملاً يساهم في رفع مستوى الوعي الصحي لدى الجميع.
+    </p>
+  </section>
+  
+  <!-- قسم المقالات الطبية -->
+  <section id="articles" class="content">
+    <h2>المقالات الطبية</h2>
+    <div class="articles">
+      <article>
+        <h3>أساسيات الطب البشري</h3>
+        <p>
+          تعرف على المفاهيم الأساسية للطب البشري بدءًا من تشريح الجسم ووظائف الأجهزة الحيوية وصولاً إلى أسس الوقاية والعلاج. نقدم شرحًا مبسطًا مع أمثلة عملية توضح أهمية الرعاية الصحية الشاملة في الحفاظ على الصحة.
+        </p>
+        <a href="#">اقرأ المزيد</a>
+      </article>
+      <article>
+        <h3>التشخيص المبكر للأمراض</h3>
+        <p>
+          يناقش هذا المقال أهمية الكشف المبكر للأمراض والوسائل الفعالة للتشخيص في المراحل الأولى، مما يساعد على تحسين نسب الشفاء والحد من المضاعفات الصحية. تعرف على أحدث التقنيات التشخيصية التي تعتمد عليها المستشفيات العالمية.
+        </p>
+        <a href="#">اقرأ المزيد</a>
+      </article>
+      <article>
+        <h3>العلاج الطبي المتقدم</h3>
+        <p>
+          استكشف أحدث أساليب العلاج الطبي التي تستخدم التكنولوجيا الحديثة مثل الطب التجديدي والعلاج الجيني لتحقيق نتائج علاجية فعالة. نتناول دراسات حالة وأمثلة تطبيقية تبين مدى فعالية هذه التقنيات في تحسين جودة الحياة.
+        </p>
+        <a href="#">اقرأ المزيد</a>
+      </article>
+    </div>
+  </section>
+  
+  <!-- قسم الموسوعة الطبية -->
+  <section id="encyclopedia" class="content">
+    <h2>الموسوعة الطبية</h2>
+    <div class="encyclopedia">
+      <article>
+        <h3>علم التشريح البشري</h3>
+        <p>
+          مقدمة شاملة في علم التشريح البشري توضح تركيب جسم الإنسان ووظائف الأعضاء بالتفصيل. يتم تناول كل جزء من الجسم بأسلوب مبسط ومدعوم بالأشكال التوضيحية والرسوم البيانية.
+        </p>
+        <a href="#">اقرأ المزيد</a>
+      </article>
+      <article>
+        <h3>أمراض الجهاز التنفسي</h3>
+        <p>
+          مقال مفصل يتناول أسباب وأعراض أمراض الجهاز التنفسي وطرق الوقاية والعلاج الحديثة. يتضمن نصائح عملية لتحسين صحة الجهاز التنفسي والحد من المخاطر الصحية.
+        </p>
+        <a href="#">اقرأ المزيد</a>
+      </article>
+      <article>
+        <h3>أمراض القلب والأوعية الدموية</h3>
+        <p>
+          دليل شامل حول أمراض القلب والعوامل المؤثرة عليها، مع شرح للإجراءات الوقائية والعلاجية التي تساعد في الحفاظ على صحة القلب وتحسين جودة الحياة.
+        </p>
+        <a href="#">اقرأ المزيد</a>
+      </article>
+    </div>
+  </section>
+  
+  <!-- قسم أخبار الطب والتكنولوجيا الطبية -->
+  <section id="news" class="content">
+    <h2>أخبار الطب والتكنولوجيا الطبية</h2>
+    <div class="news">
+      <article>
+        <h3>اكتشافات طبية حديثة</h3>
+        <p>
+          أحدث التطورات والابتكارات العلمية في مجال الطب التي تغير معالم الرعاية الصحية. نناقش في هذا المقال الابتكارات التي قد تؤثر بشكل جذري على مستقبل العلاج.
+        </p>
+        <a href="#">اقرأ المزيد</a>
+      </article>
+      <article>
+        <h3>أبحاث طبية رائدة</h3>
+        <p>
+          استعرض أهم الأبحاث العلمية والتجارب السريرية التي تسهم في تطوير أساليب العلاج والوقاية من الأمراض، مع تحليلات معمقة يقدمها خبراء المجال الطبي.
+        </p>
+        <a href="#">اقرأ المزيد</a>
+      </article>
+      <article>
+        <h3>التطورات في علاج الخلايا الجذعية</h3>
+        <p>
+          تعرف على دور الخلايا الجذعية في تجديد الأنسجة وعلاج الأمراض المزمنة، مع استعراض لأحدث الدراسات والتجارب العلمية التي توضح إمكانيات هذا العلاج الثوري.
+        </p>
+        <a href="#">اقرأ المزيد</a>
+      </article>
+    </div>
+  </section>
+  
+  <!-- قسم الاستشارات الطبية -->
+  <section id="consultation" class="content">
+    <h2>الاستشارات الطبية</h2>
+    <div class="consultation">
+      <form id="consultation-form">
+        <label for="consult-name">الاسم:</label>
+        <input type="text" id="consult-name" required>
+        
+        <label for="consult-email">البريد الإلكتروني:</label>
+        <input type="email" id="consult-email" required>
+        
+        <label for="consult-message">استشارتك:</label>
+        <textarea id="consult-message" rows="5" required></textarea>
+        
+        <button type="submit">إرسال الاستشارة</button>
+      </form>
+      <p id="consultation-response" style="text-align: center; margin-top: 10px;"></p>
+    </div>
+  </section>
+  
+  <!-- قسم التواصل -->
+  <section id="contact" class="content">
+    <h2>اتصل بنا</h2>
+    <p style="text-align: center;">
+      للتواصل والاستفسارات، يرجى مراسلتنا عبر البريد الإلكتروني: <strong>contact@dramr.com</strong>
+    </p>
+  </section>
+  
+  <!-- قسم المصادر الإضافية -->
+  <section id="sources" class="content">
+    <h2>مصادر إضافية للمعلومات الطبية</h2>
+    <p style="text-align: justify;">
+      فيما يلي قائمة بمصادر خارجية موثوقة تحتوي على معلومات قيمة في مجال الطب البشري والعلوم الطبية. ننصح بزيارة هذه المواقع للاستزادة من المعلومات والأبحاث العلمية، ومتابعة أحدث التطورات في مجال الرعاية الصحية:
+    </p>
+    <div class="external-sources">
+      <ul>
+        <li><a href="https://www.mayoclinic.org/" target="_blank">Mayo Clinic - مايو كلينيك</a></li>
+        <li><a href="https://www.webmd.com/" target="_blank">WebMD - ويب ميد</a></li>
+        <li><a href="https://www.healthline.com/" target="_blank">Healthline - هيلثلين</a></li>
+        <li><a href="https://medlineplus.gov/" target="_blank">MedlinePlus - ميدلاين بلس</a></li>
+        <li><a href="https://my.clevelandclinic.org/" target="_blank">Cleveland Clinic - كليفلاند كلينيك</a></li>
+        <li><a href="https://www.hopkinsmedicine.org/" target="_blank">Johns Hopkins Medicine - جامعة جونز هوبكنز</a></li>
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank">PubMed - بوب ميد</a></li>
+        <li><a href="https://www.medscape.com/" target="_blank">Medscape - ميد سكيب</a></li>
+        <li><a href="https://www.bmj.com/" target="_blank">BMJ - بي إم جي</a></li>
+        <li><a href="https://www.nih.gov/" target="_blank">NIH - المعهد الوطني للصحة</a></li>
+      </ul>
+    </div>
+  </section>
+  
+  <!-- الفوتر -->
+  <footer>
+    <p>حقوق النشر &copy; 2025 - جميع الحقوق محفوظة</p>
+  </footer>
+  
+  <!-- JavaScript للتفاعلية -->
+  <script>
+    // محاكاة إرسال نموذج الاستشارات الطبية
+    const consultationForm = document.getElementById('consultation-form');
+    const consultationResponse = document.getElementById('consultation-response');
+    
+    consultationForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      consultationResponse.textContent = "تم إرسال استشارتك بنجاح، سنرد عليك قريباً.";
+      consultationForm.reset();
+    });
+  </script>
+</body>
+</html>
